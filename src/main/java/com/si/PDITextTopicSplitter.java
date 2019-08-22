@@ -29,29 +29,28 @@ import org.pentaho.di.trans.step.StepMeta;
 import org.pentaho.di.trans.step.StepMetaInterface;
 
 /**
- * Describe your step plugin.
- * 
+ * Describe your step plugin. Uses NLTK to segment text using a custom python script
+ *
  */
 public class PDITextTopicSplitter extends BaseStep implements StepInterface {
   
   private static Class<?> PKG = PDITextTopicSplitterMeta.class; // for i18n purposes, needed by Translator2!!   $NON-NLS-1$
   
-  public PDITextTopicSplitter( StepMeta stepMeta, StepDataInterface stepDataInterface, int copyNr, TransMeta transMeta,
-    Trans trans ) {
+  public PDITextTopicSplitter( StepMeta stepMeta, StepDataInterface stepDataInterface, int copyNr, TransMeta transMeta, Trans trans ) {
     super( stepMeta, stepDataInterface, copyNr, transMeta, trans );
   }
   
   /**
-     * Initialize and do work where other steps need to wait for...
-     *
-     * @param stepMetaInterface
-     *          The metadata to work with
-     * @param stepDataInterface
-     *          The data to initialize
-     */
-    public boolean init( StepMetaInterface stepMetaInterface, StepDataInterface stepDataInterface ) {
-      return super.init( stepMetaInterface, stepDataInterface );
-    }
+  * Initialize and do work where other steps need to wait for...
+  *
+  * @param stepMetaInterface
+  *          The metadata to work with
+  * @param stepDataInterface
+  *          The data to initialize
+  */
+  public boolean init( StepMetaInterface stepMetaInterface, StepDataInterface stepDataInterface ) {
+    return super.init( stepMetaInterface, stepDataInterface );
+  }
 
   public boolean processRow( StepMetaInterface smi, StepDataInterface sdi ) throws KettleException {
     Object[] r = getRow(); // get row, set busy!
